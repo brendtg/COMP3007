@@ -1,0 +1,74 @@
+\documentclass{article}
+\usepackage[margin=1in, top = .8in, left=.8in]{geometry}
+\usepackage{comment}
+\usepackage{amsmath, amssymb}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{comment}
+\usepackage{tikz,pgfplots}
+\usepgfplotsilibrary{fillbetween}
+\pgfplotsset{compat=1.15}
+\usepackage[hyphens]{url}
+
+\begin{document}
+
+ \begin{center}
+    \large \textbf{Homework 10}
+\end{center}
+    %\item[\textbf{Week 10}]
+        \begin{itemize}
+            %\item Sync (Week 9):
+            \item Part 1
+                \begin{enumerate}
+                    \item The function $f(x)=x^4+2x^3 - 120x^2+120x + 1$ has a local maximum between $x=0$ and $x=1$.  Approximate the location of that zero. Use Newton's method.
+                    \item Approximate $\sqrt[3]{3}$ to within four decimal places using Newton's method.
+                    \item Clearly the function $f(x)= \sqrt[3]{x}$ has a root at $x=0$. Use Newton's method to locate this zero by starting at $x_0=1$. Give a list of several of the approximations. Explain what happened in this example, and why.
+                     \item Evaluate $$\int\int_R xye^{x^2y}\,dA$$ 
+                     over the region $R = [0,1]\times [0,2]$. Be wise about which order of integration you choose.
+                     \item For each of the following, sketch the region of integration and change the order of integration.
+                     \begin{enumerate}
+                     
+                     \item $\displaystyle \int_0^4\int_{0}^{\sqrt{x}} f(x,y)\,dy\,dx$
+                     \item $\displaystyle \int_0^1\int_{2x}^4 f(x,y)\,dy\,dx$
+                    \item $\displaystyle \int_0^3\int_0^{\sqrt{9-y}}f(x,y)\,dx\,dy$
+                    \end{enumerate}
+                    \item Find the value of the following double integral:
+                    $$\int_0^1\int_{3y}^{3}e^{x^2}\,dx\,dy$$
+                \end{enumerate} 
+            %\item Async (Week 10):
+            \item Part 2
+                \begin{enumerate}
+                    \item Suppose that the function $f(x,y)$ defined below is a probability density function:
+                    $$ f(x,y) = \begin{cases} 
+                        ce^{x^2} & \text{if } (x,y) \in [0,1]\times [0,1] \text{ and } y \leq x\\
+                        0 & \text{otherwise} \\
+                        \end{cases}
+                    $$
+                    Find the value of $c$.
+                    \item For the probability density function given in the previous problem, find the probability that the pair $(x,y)$ satisfies $y \leq 2x$.
+                    \item A uniform probability density function is defined on the region $[0,2]\times[0,1]$. Find the probability that the pair $(x,y)$ satisfies $y \leq \sqrt{x}$ and $y \leq 2-x$.
+                    \item Set up and evaluate the double integral in polar coordinates that gives the volume of a sphere of radius 2.
+
+                    \item A hole of radius 1 is drilled out of the center of a sphere of radius 2. Use polar coordinates to find the volume of the resulting solid. Show your work, including the two-dimensional graph of the region of integration and the double integral. Give the answer in exact form. (You may verify your work by comparing to the numerical answer, which is 21.766.)
+      
+                   \begin{center}
+                       \includegraphics[]{"Week10 Bored".pdf}
+                   \end{center}
+                   
+                   \item Convert the following integral to polar coordinates. You do not need to evaluate.
+                   $$\int_{-3}^3 \int_x^{\sqrt{9-x^2}} x^2y\,dy\,dx$$
+                   
+                   \item Suppose that a probability density function is given by 
+                   $$ f(x,y) = \begin{cases} 
+                        c(1-x^2-y^2) & \text{if } x^2+y^2\leq 1 \\
+                        0 & \text{otherwise} \\
+                        \end{cases}
+                    $$
+                    Find the probability that $x^2+y^2 \leq 0.5$
+ 
+
+                \end{enumerate}
+        \end{itemize}
+
+
+\end{document}

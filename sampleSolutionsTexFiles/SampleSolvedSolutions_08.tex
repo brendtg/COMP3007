@@ -1,0 +1,134 @@
+\documentclass{article}
+\usepackage[margin=1in, top = .8in, left=.8in]{geometry}
+\usepackage{comment,hyperref}
+\usepackage{amsmath, amssymb}
+\usepackage{framed}
+\usepackage{enumitem}
+\usepackage{comment}
+\usepackage{tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+
+\usepackage{url}
+\everymath{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\everymath{\displaystyle}
+
+\begin{document}
+\begin{center}
+\textbf{
+    Sample problems with solutions for Homework 8}
+\end{center}
+
+\begin{enumerate}
+
+\item Let $g(x)=\ln(x)$.  
+    \begin{enumerate}
+        \item Find the 4th degree Taylor polynomial for $\ln(1+x)$ centered at $a=0$. 
+        \item Use the polynomial you found above to estimate the value of $\ln(1.1)$. Compare to the actual value found using technology.
+        \item Write the general term $c_n$ for the series of $\ln(1+x)$
+        \item Find a series representation for $\ln(1+x)$ by manipulating a known series. Compare the first few terms to the Taylor polynomial you found above.
+\end{enumerate}
+\item Evaluate the following sums:
+\begin{enumerate}
+    \item $\sum_{k=1}^\infty \frac{1}{2^{k+1}}$
+    \item $\sum_{k=1}^\infty \frac{1}{2^{k+1}\cdot k!}$
+    \item $\sum_{k=1}^\infty \frac{1}{k2^{k+1}}$
+    \item $\sum_{k=1}^\infty \frac{k}{2^{k+1}}$
+    \item $\sum_{n=1}^\infty \frac{n^2}{3^{n}}$
+    \end{enumerate}
+\item Write the integral $\int_0^1 \frac{\ln(1+x)}{x}\,dx$ as an infinite series
+    \end{enumerate}
+    
+       \begin{center}
+        \textbf{\Large{Solutions}}
+    \end{center}
+    \begin{enumerate}
+    \item Recall the definition for the 4th degree Taylor polynomial for a function $f(x)$ centered at 0.
+    \[\sum_{k=0}^4 \frac{f^{(k)}(0)}{k!}x^k\]
+    \begin{enumerate}
+        \item The first four derivatives of $g(x)=\ln(1+x)$ are 
+        \begin{enumerate}[itemsep = .5em]
+            \item $g^{(0)}(x) = \ln(1+x)$, evaluated at 0 is 0.
+            \item $g^{(1)}(x) = \frac{1}{1+x}$, evaluated at 0 is 1.
+            \item $g^{(2)}(x) = \frac{-1}{(1+x)^2} $evaluated at 0 is $-1$.
+            \item $g^{(3)}(x) = \frac{2}{(1+x)^3} $evaluated at 0 is 2
+            \item $g^{(4)}(x) = \frac{-6}{(1+x)^4} $evaluated at 0 is -6
+        \end{enumerate}
+        Using the formula above, the fourth Taylor polynomial of $\ln(1+x)$ is
+        \[T_4(x) = x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}\]
+        \item Evaluating this gives us  $\ln(1.1)$
+        \[T_4(.1) =\ln(1+.1) = .1-\frac{(.1)^2}{2}+\frac{(.1)^3}{3}-\frac{(.1)^4}{4}\]
+        Desmos gives this to be a value of approximately 0.095308, which is fairly close to the value of 0.095310 that desmos estimates for the actual value.
+        \item If we continued taking derivatives, we would see the following pattern for the derivatives of $\ln(1+x)$
+        \[g^{(n)}(x) = \frac{(-1)^{n+1}(n-1)!}{(1+x)^k}, \quad n\ge 1\]
+        At zero, these become
+        \[g^{(n)}(0) = (-1)^{n+1}(n-1)!, \quad n\ge 1\]
+        The general coefficients of a Taylor polynomial are
+        \[c_n =\frac{g^{(n)}(0)}{n!} = \frac{(-1)^{n+1}}{n} \]
+        \item Notice that the derivative of $\ln(x)$ is one whose Taylor series we know, namely
+        \[\frac{1}{1+x} = \sum_{k=0}^\infty (-1)^k\cdot x^k\]
+        We can work backwards and integrate this series to re-obtain a series for $\ln(1+x)$
+        \begin{eqnarray*}
+        \ln(1+x) &=& \int \sum_{k=0}^\infty (-1)^k\cdot x^k dx \\[1em]
+        &=&  \sum_{k=0}^\infty \int(-1)^k\cdot x^k dx \\[1em]
+        &=& \sum_{k=0}^\infty (-1)^k\ \frac{x^{k+1}}{k+1}  
+        \end{eqnarray*}
+        
+        The first four terms of this series are $x-\frac{x^2}{2}+\frac{x^3}{3}$, which matches what we would get using the work above. 
+
+    \end{enumerate}
+    \item \begin{enumerate}
+        \item The series $\sum_{k=1}^\infty \frac{1}{2^{k+1}}$ is directly recognizable as a geometric series, with first term $\frac{1}{4}$ and ratio $\frac{1}{2}$. So the sum is $\frac{\frac{1}{4}}{1-\frac{1}{2}} = \frac{1}{2}$.
+        \item The sum  $\sum_{k=1}^\infty \frac{1}{2^{k+1}\cdot k!}$ reminds us of the Taylor series for $e^x$. In fact it is very nearly that series with $\frac{1}{2}$ substituted for $x$. Massaging the given series to adjust the exponent in the denominator and to get the starting point to be $k=0$:
+         $\sum_{k=1}^\infty \frac{1}{2^{k+1}\cdot k!} = \frac{1}{2}\sum_{k=1}^\infty \frac{1}{2^{k}\cdot k!} = -\frac{1}{2}+\frac{1}{2}\sum_{k=0}^\infty \frac{1}{2^{k}\cdot k!} = -\frac{1}{2} + \frac{1}{2}e^{\frac{1}{2}}$. Entering the original series and the final answer into Wolfram Alpha reassuringly gives the same numerical value of about $0.32436$.
+         \item If we're very alert, we notice that  $\sum_{k=1}^\infty \frac{1}{k2^{k+1}}$ is reminiscent of the series representation 
+         $$\ln(1+x) = \sum_{k=1}^\infty (-1)^{k+1}\frac{x^k}{k}$$
+         Substituting $x=-\frac{1}{2}$ gives
+         $$\ln(1-\frac{1}{2}) = \sum_{k=1}^{\infty}(-1)^{k+1}\frac{(-\frac{1}{2})^k}{k}= \sum_{k=1}^{\infty}-\frac{(\frac{1}{2})^k}{k} = - \sum_{k=1}^{\infty}\frac{1}{k2^k}$$
+         Multiplying both sides by $-\frac{1}{2}$, we get
+         $$-\frac{1}{2}\ln{\frac{1}{2}} = \frac{\ln{2}}{2} =  \sum_{k=1}^{\infty}\frac{1}{k2^{k+1}}$$
+         Numerical estimation using Wolfram Alpha confirms this looks correct.
+         Now, on the other hand, if we had not been alert enough to recognize this series, we could solve it using the following alternate method. Begin with the power series representation $$ \sum_{k=0}^\infty x^k = \frac{1}{1-x}$$
+         Integrating both sides with respect to $x$ gives
+         $$ \sum_{k=0}^\infty \frac{x^{k+1}}{k+1} = -\ln{(1-x)}+C$$
+         Substituting $x=0$ shows that the constant of integration is $C=0$. Shifting the index of summation gives
+         $$ \sum_{k=1}^\infty \frac{x^{k}}{k} = -\ln{(1-x)}$$
+         Now substituting $x=\frac{1}{2}$ yields
+         $$ \sum_{k=1}^\infty \frac{1}{k2^k} = -\ln{(1-\frac{1}{2})} = \ln{2}$$
+         Multiplying both sides by $x=\frac{1}{2}$ gives the final answer:
+          $$ \sum_{k=1}^\infty \frac{1}{k2^{k+1}} =  \frac{\ln{2}}{2}$$
+         \item  Not immediately recognizing the series
+         $\sum_{k=1}^\infty \frac{k}{2^{k+1}}$, but noticing that it looks like a geometric series with an extra factor of $k$ in the numerator, we attempt to build it from a known power series representation, namely
+         $$ \sum_{k=0}^\infty x^k = \frac{1}{1-x}$$
+         Differentiating both sides of the above line with respect to $x$ gives
+        $$ \sum_{k=1}^\infty kx^{k-1} = \left(\frac{1}{1-x}\right)^2$$
+        Substituting $x=\frac{1}{2}$ gives
+        $$ \sum_{k=1}^\infty \frac{k}{2^{k-1}} = 4$$
+        Now multiplying both sides by $\frac{1}{4}$:
+        $$ \sum_{k=1}^\infty \frac{k}{2^{k+1}} = 1$$
+    This answers the given question. Using Wolfram Alpha results in the same numerical answer.
+    \item The first step we take is using the Taylor series for the geometric series, and taking a derivative
+    \[\frac{d}{dx}\left[\frac{1}{1-x}\right]= \frac{1}{(1-x)^2} = \sum_{n=1}^\infty nx^{n-1}\]
+    It is tempting to take another derivative, since we see power of $n^2$, and until now we have only taken derivatives to obtain new series. We now have a small additional step before taking another derivative (if we did just take another derivative, we would get an $n(n-1)$ term.  Let's multiply our latest series by $x$:
+    \[ \frac{x}{(1-x)^2} = \sum_{n=1}^\infty nx^{n}\]
+    Let's now take a derivative of this:
+    \[\frac{d}{dx}\left[\frac{x}{(1-x)^2} \right] =\frac{(x + 1)}{(1 - x)^3}= \sum_{k=1}^\infty n^2x^{n-1}\]
+    \end{enumerate}
+    \item We are asked to evaluate $\int_0^1 \frac{\ln(1+x)}{x} dx$. It is worth noting the bounds, and making a mental note to check what interval we are allowed to integrate over. To do this, we must find the Taylor Polynomial for the given function.  Thankfully, this is readily obtained using the Taylor series of $\ln(1+x)$:
+    \[\frac{1}{x}\cdot \ln(1+x) = \frac{1}{x}\cdot \sum_{k=0}^\infty (-1)^k\ \frac{x^{k+1}}{k+1} = \sum_{k=0}^\infty (-1)^k\ \frac{x^{k}}{k+1}   \]
+    We may now integrate
+    \begin{eqnarray*}
+    \int_0^1 \frac{\ln(1+x)}{x} dx &=& \int_0^1 \sum_{k=0}^\infty (-1)^k\ \frac{x^{k}}{k+1} \\[1em]
+    &=&  \sum_{k=0}^\infty \int_0^1(-1)^k\ \frac{x^{k}}{k+1} \\[1em]
+    &=&  \sum_{k=0}^\infty (-1)^k \frac{x^{k+1}}{(k+1)^2}\biggr|_0^1 \\[1em]
+    &=&  \sum_{k=0}^\infty  \frac{(-1)^k}{(k+1)^2}
+    \end{eqnarray*}
+    For good measure, let's check our work using technology. Let's compare $S_{10}$ to the value technology gives for the integral
+    \[S_{10} \approx 0.826226638421\]
+    
+    \[\int_0^1 \frac{\ln(1+x)}{x}\ dx \approx 0.822467033424
+\]
+    \end{enumerate}
+
+\end{document}

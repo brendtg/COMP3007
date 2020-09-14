@@ -1,0 +1,108 @@
+\documentclass{article}
+\usepackage[margin=1in, top = .8in, left=.8in]{geometry}
+\usepackage{comment}
+\usepackage{amsmath, amssymb}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{comment}
+\usepackage{tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+
+\usepackage{url}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\everymath{\displaystyle}
+
+\begin{document}
+\begin{center}
+\textbf{
+    Sample solved exercises with solutions for Homework 1}
+\end{center}
+    \begin{enumerate}
+        \item Complete the square in the following expression. In other words, rewrite it so it is of the form $a(x-b)^2 + k$
+        $$5c(\alpha x^2 + \pi p x)$$
+        \item Explain the difference between the following two expressions:
+        $$\sum_{i=1}^n (y_i - \mu)$$
+        and 
+        $$\sum_{i=1}^n y_i - \mu.$$
+        \item Consider the function $\displaystyle p(x) = \frac{1}{\sqrt{2\pi \sigma^2}}\exp\left( \frac{-x_1^2-x_2^2-x_3^2}{2\sigma^2}\right)$. Define a new function $h(x) = \ln(p(x))$. Use the laws of logs to fully simplify $h(x)$,
+        \item A function can be understood as a process by which we produce outputs from a given input.  The types of things we input and output can vary greatly from function to function.  We can input single numbers, lists of numbers, or perhaps something non-numeric. When you see the notation $m:\mathbb{R}^2 \to \mathbb{R}$, we are saying that $m$ is a function that inputs two numbers and returns a single number.  So $m$ might look like \[m(a,b)=ab+\sqrt{ab}\]
+        Match the following functions on the left to the descriptors on the right.
+        Match the property of matter from the left column with the appropriate measurement device or technique on the right.
+\begin{center}
+\begin{tabular}{llll}
+1.  &   $f(x,y)=(xy,yx+1)$ &   a.       &   $\R^3\to \R$\\
+&&&\\
+2.  &   $f(x)=(x^2-3,\ln(x+1))$    &   b. & $\{\text{words}\}\to \N$  \\
+&&&\\
+3.  &   $f(x,y,z)=xyz$      &   c.  &   $\R\to\R^2$\\
+&&&\\
+4.  &   $f(x,y)=(xy,xy,xy)$      &   d. &   $\R^2\to \R^2$\\
+&&&\\
+5.  &   $f(\text{word})=\text{length of word}$       &   e. &   $\R^2\to \R^3$
+\end{tabular}
+\end{center}
+    \item Say that $p(i)$ is defined below:
+                        $$ p(i) = \begin{cases} 
+                        c\cdot i^2 & \text{if $1 
+                        \leq i \leq 10, \quad i \in \mathbb{N}$} \\
+                        0 & \text{otherwise} \\
+                        \end{cases}
+                        $$
+                        Find the value of the constant $c$ so that $\displaystyle \sum_{i=1}^{10} p(i)$ = 1. Then, using that value of $c$, find $\displaystyle \sum_{i=1}^{10} i\cdot p(i)$ and $\displaystyle \sum_{i=1}^{10} i^2 \cdot p(i)$.
+    \item Write the following series in summation notation.
+                           \begin{enumerate}
+                            \item $\displaystyle \frac{1}{2}-\frac{4}{4}+\frac{9}{8}-\frac{16}{16} + \ldots - \frac{100}{1024}$
+                            \item $\displaystyle \frac{3}{5\cdot 2!}+\frac{5}{5^2\cdot 3!}+\frac{7}{5^3\cdot 4!} + \ldots$
+            \end{enumerate}
+    \end{enumerate}
+    \newpage
+    \begin{center}
+        \textbf{\Large{Solutions}}
+    \end{center}
+    \begin{enumerate}
+        \item Our goal is to re-write the given expression in the form $a(x-b)^2 + k$
+        \begin{eqnarray*}
+        5c(\alpha x^2 + \pi p x) &=& 5c\alpha (x^2+\frac{\pi p}{\alpha}x) \\ [1em]
+        &=& 5c\alpha \left(x^2+\frac{\pi p}{\alpha}x+\left(\frac{\pi p}{2\alpha}\right)^2-\left(\frac{\pi p}{2\alpha}\right)^2\right) \\[1em]
+        &=& 5c\alpha \left(x+\frac{\pi p}{2\alpha}\right)^2- 5c\alpha \frac{\pi^2 p^2}{4\alpha^2} 
+        \end{eqnarray*}
+        From this, we find that $a=5c\alpha$ and $k=- 5c\alpha \frac{\pi^2 p^2}{4\alpha^2} $
+        \item The parentheses make a big difference. In the first expression, $\sum_{i=1}^n (y_i - \mu)$, the ``$-\mu$'' is part of each summand, while in the second expression, $\sum_{i=1}^n y_i - \mu$, the $\mu$ is subtracted once from the total sum. The first expression can be simplified as follows:
+        \begin{eqnarray*}
+        \sum_{i=1}^n (y_i - \mu) &=&
+        (y_1-\mu) + (y_2 - \mu) + \ldots + (y_n - \mu)\\ 
+        &=&y_1 + y_2 + \ldots + y_n - \mu - \mu - \ldots - \mu \\
+        &=& \sum_{i=1}^n y_i - n\mu
+        \end{eqnarray*}
+        \item Using the product-to-sum law and the fact that $\ln$ and $\exp$ are inverse functions of each other, we can re-write the given function as follows:
+        \begin{eqnarray*}
+        \ln(p(x)) &=& \ln\left(\frac{1}{\sqrt{2\pi \sigma^2}}\exp\left( \frac{-x_1^2-x_2^2-x_3^2}{2\sigma^2}\right)\right) \\[1em]
+        &=& \ln\left(\frac{1}{\sqrt{2\pi \sigma^2}}\right) + \ln\left(\exp\left( \frac{-x_1^2-x_2^2-x_3^2}{2\sigma^2}\right) \right) \\[1em]
+        &=&\ln\left(\frac{1}{\sqrt{2\pi \sigma^2}}\right) +\left( \frac{-x_1^2-x_2^2-x_3^2}{2\sigma^2}\right)
+        \end{eqnarray*}
+        \item \begin{itemize}
+            \item $1.\leftrightarrow d.$
+            \item $2.\leftrightarrow c.$
+            \item $3.\leftrightarrow a.$
+            \item $4.\leftrightarrow e.$
+            \item $5.\leftrightarrow b.$
+        \end{itemize}
+        \item We need the following:
+        $$\sum_{i=1}^{10} c\cdot i^2 = c\sum_{i=1}^{10} i^2 = 1$$
+        Searching online, we find the formula $\sum_{i=1}^n i^2 = \frac{n(n+1)(2n+1)}{6}$. 
+        Substituting gives
+        $$c\cdot\frac{10(10+1)(2\cdot 10+1)}{6} = c \cdot 385 =1,$$
+        so $c=\frac{1}{385}$. Now that we have $c$, we can re-write $\sum_{i=1}^{10} i\cdot p(i)=\sum_{i=1}^{10} \frac{1}{385}\cdot i^3$.  This requires another internet search to find $\sum_{i=1}^n i^3 = \frac{n^2(n+1)^2}{4}$. Substituting gives $$\sum_{i=1}^{10} \frac{1}{385}\cdot i^3 = \frac{1}{385}\frac{100\cdot121}{4} = \frac{3025}{325}$$
+        
+        Likewise we find $\sum_{i=1}^ni^4 = \frac{n(n+1)(6n^3+9n^2+n-1)}{30}$. Substituting gives
+        \[\sum_{i=1}^{10} \frac{1}{385}i^4= \frac{25333}{385}\]
+        
+        \item
+            \begin{enumerate}
+                \item We can start this series with the index $n=1$. First note that the terms of the series alternate signs, starting with a positive for the index 1 term. The expression $(-1)^{n-1}$ alternates sign (use $(-1)^n$ if the index 0 term is  negative). The numerators look like the square numbers, given by $n^2$. The denominators are the powers of 2, given by $2^n$. The last term has a numerator of $10^2$ and a denominator of $2^10$, so the last term is $n=10$. Putting it all together, the series is $$\sum_{n=1}^{10} (-1)^{n-1} \frac{n^2}{2^n}$$.
+                \item The numerators of the terms of this series have a constant difference of 2, so the numerators are an arithmetic sequence. If we let the first term have index $n=1$, the numerator is the linear expression $2n+1$. The denominators have a geometric component ($5^n$) and a factorial component ($(n+1)!$). The series is an infinite series. Putting it all together, the series in summation form is 
+                $$\sum_{n=1}^{\infty}  \frac{2n+1}{5^n\cdot (n+1)!}$$.
+            \end{enumerate}
+    \end{enumerate}
+\end{document}

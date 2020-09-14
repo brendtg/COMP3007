@@ -1,0 +1,77 @@
+\documentclass{article}
+\usepackage[margin=1in, top = .8in, left=.8in]{geometry}
+\usepackage{comment,hyperref}
+\usepackage{amsmath, amssymb}
+\usepackage{framed, nicefrac}
+\usepackage{enumitem}
+\usepackage{comment}
+\usepackage{tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+
+\usepackage{url}
+\everymath{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\everymath{\displaystyle}
+
+\begin{document}
+\begin{center}
+\textbf{
+    Sample problems with solutions for Homework 9}
+\end{center}
+    \begin{enumerate}
+        \item Write the integral $\int_0^1 e^{x^2}\,dx$ as an infinite sum. Estimate the value of the integtral by adding the first four terms.
+        \item Let  $$p(x,y) = \begin{cases} 
+                        c(x+y) & \text{if $x\in {1, 2, 3, 4, 5}$ and $y\in{1, 2,3,4}$} \\
+                        0 & \text{otherwise} \\
+                        \end{cases}
+                        $$
+                        \begin{enumerate}
+                            \item 
+         Find $c$ so that $p(x,y)$ defines a valid (joint) probability mass function.  That is, find the value of $c$ so that $\displaystyle \sum_x \sum_y p(x, y) = 1$. 
+                            \item Find $\displaystyle E[XY] =\sum\sum xyp(x,y)$.
+                        \end{enumerate}
+                            \item Find and sketch the domain of $f\left(x,y\right)=\frac{\ln(2-x-y)}{4+x-y}$
+                            \item Find the minimum distance from the origin to the graph of $z=2x+y+1$ 
+                            \item In HW 9 part 2, number 3 you are asked to derive a maximum likelihood estimation formula that you will use in a later statistics course. In videos 9.4.3 and 9.4.6, samples are done that are very similar to this that can act as a guide for your solution. These samples use two variables - you're asked to extend the result to more variables.
+    \end{enumerate}
+    \begin{center}
+        \textbf{\Large{Solutions}}
+    \end{center}
+    \begin{enumerate}
+    \item We start with the series representation for $e^x$:
+    $$e^x = \sum_{n=0}^\infty \frac{x^n}{n!}$$
+    Now substitute $x^2$ in the place of $x$:
+        $$e^{x^2} = \sum_{n=0}^\infty \frac{x^{2n}}{n!}$$
+    Find the definite integral of both sides from $x=0$ to $x=1$:
+     $$\int_0^1 e^{x^2}\,dx = \int_0^1 \sum_{n=0}^\infty \frac{x^{2n}}{n!}\,dx = \sum_{n=0}^\infty \int_0^1\frac{x^{2n}}{n!}\,dx = \sum_{n=0}^\infty\frac{x^{2n+1}}{(2n+1)n!}\biggr|_0^1=\sum_{n=0}^\infty\frac{1}{(2n+1)n!}$$
+     Adding the first four terms gives
+     $$1+\frac{1}{3} + \frac{1}{10} + \frac{1}{42}\approx 1.457$$
+     Note that the value of the infinite sum is estimated using Wolfram Alpha to be $\approx 1.46265.$
+     \item 
+     \begin{enumerate}
+     \item  You could find the sum by hand, but technology is our friend.  If we pull out the $c$, then Desmos can do the rest: \url{https://www.desmos.com/calculator/onedvis6fm}. From this, we see that we need $c=\frac{1}{110}$ to make this a pmf.
+     \item Likewise, this calculation was readily done using technology, and was done in the link in the first part.
+   \end{enumerate} 
+    \item You can find a sketch of the domain at this link: \url{https://www.desmos.com/calculator/dtx0cu9qie}. While I highly encourage you to use technology to explore the world of calculus with the aid of technology, you may want to consider asking yourself how you would approach this exercise without such aids. The denominator can't be zero, so $y\neq 4+x$. The input to a log function must be positive. So $2-x-y>0$, which means $y < 2-x$. Graph these lines and shade appropriately.
+    \item The distance between two points in $\R^3$ is given, very formally, by the following formula:
+    \[D:\R^3\times \R^3 \to \R; \left((x_1,x_2,x_3),(y_1,y_2,y_3)\right)\mapsto \sqrt{(x_1-y_1)^2+(x_2-y_2)^2+(x_3-y_3)^2}\]
+    A point on the plane given by $z$ will have coordinates $(x,y,2x+y+1)$, and so the distance to the origin will be given by the following function:
+    \[d(x,y) = \sqrt{x^2+y^2+(2x+y+1)^2}\]
+    A useful (though not strictly necessary) trick is to consider the square of $d^2$ instead of $d$, since both have their minimum value at the same value of $(x,y)$.
+    \[d^2(x,y) = f(x,y) = x^2+y^2+(2x+y+1)^2\]
+    Now, calculating partial derivatives using the chain rule we get 
+    \[f_x =2x+8x+4y+4 \]
+    Likewise, we find
+    \[f_y =2y+4x+2y+2  \]
+    The critical numbers of $f$ will occur when the partial derivatives are 0 or undefined. The partial derivatives are 0 when the following conditions are met:
+    \begin{eqnarray*}
+       10x+4y+4 &=& 0\\[1em]
+    4x+4y+2  &=& 0 
+    \end{eqnarray*}
+    Using whatever method brings a smile to your face, you should find there is only one solution to this system of equations, namely the point $\left(-\nicefrac{1}{3},-\nicefrac{1}{6}\right)$.  The graph of $f(x,y)$ is a paraboloid that opens upwards. So the minimum occurs at the point $\left(-\nicefrac{1}{3},-\nicefrac{1}{6}\right)$. To find the minimum distance, we substitute this point into the formula for the distance function $d(x,y)$, giving
+    $d(-\nicefrac{1}{3},-\nicefrac{1}{6}) \approx 0.408$
+    
+    \end{enumerate}
+
+\end{document}

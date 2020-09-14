@@ -1,0 +1,80 @@
+\documentclass{article}
+\usepackage[margin=1in, top = .8in, left=.8in]{geometry}
+\usepackage{comment,hyperref}
+\usepackage{amsmath, amssymb}
+\usepackage{framed}
+\usepackage{enumitem}
+\usepackage{comment}
+\usepackage{tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+
+\usepackage{url}
+\everymath{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\everymath{\displaystyle}
+
+\begin{document}
+\begin{center}
+\textbf{
+    Sample problems with solutions for Homework 7}
+\end{center}
+    \begin{enumerate}
+               \item Evaluate the sum $\displaystyle \sum_{j=1}^\infty a_j$ (or determine that it diverges) given that the formula for its $n$th partial sum is
+                            $\displaystyle S_n = \frac{5 + e^n}{n}$
+            \item Use a term-size comparison to determine whether $\displaystyle \sum_{n=1}^\infty \frac{1}{ne^n}$ converges.
+            \item Which comparison test is best used to determine if the series $\displaystyle \sum_{n=1}^\infty \frac{1}{\sqrt{2n+1}}$ converges?
+            \item Determining whether a series converges requires you to choose which tool best applies (divergence test, comparison test, limit comparison test, geometric series test, alternating series test). This website gives a strategy for choosing tests:\\ \url{http://tutorial.math.lamar.edu/Classes/CalcII/SeriesStrategy.aspx} 
+            \item Find the sum of the series $$\sum_{n=2}^\infty \frac{e^{2n+1}}{5\pi^{3n-2}}$$
+            \item Find a power series representation of the function $\displaystyle f(x) = \frac{1}{x+c}$
+            \item Find a power series representation of the function $\displaystyle f(x) = \frac{x}{(1-x)^2}$
+            \item Find the power series representation of $f(x) = \ln(1+\sqrt{x})$
+    \end{enumerate}
+    \begin{center}
+        \textbf{\Large{Solutions}}
+    \end{center}
+    \begin{enumerate}
+    \item The point of this example is to keep straight these quantities:
+    \begin{itemize}
+        \item $a_j$, which are the individual terms of the sequence,
+        \item $S_n$, which is the $n$th partial sum, meaning the sum of the first $n$ terms
+        \item $S$, the sum of the infinite series. 
+        \end{itemize}
+        Note that 
+        $$S = \displaystyle \sum_{j=1}^\infty a_j = \lim_{n\rightarrow\infty} S_n$$
+        Don't get the individual terms $a_j$ mixed up with the partial sums $S_n$.
+        For this problem, to find $S=\displaystyle \sum_{j=1}^\infty a_j$, just find the limit of $S_n$, since we've already been given a formula for the partial sums. We must find:
+        $$S = \lim_{n\rightarrow\infty} S_n = \lim_{n\rightarrow\infty} \frac{5 + e^n}{n}$$
+        Informally,  since the limit is of the form ``$\frac{\infty}{\infty}$'' and the numerator grows at a faster rate than the denominator, the value of this limit will be $\infty$. For a formal solution, 
+         using L'H\^{o}pital's rule, we get
+        $S = \lim_{n\rightarrow \infty} \frac{e^n}{1} = \infty$.
+        \item Let's define $a_n = \frac{1}{ne^n}$. There are two initial choices one might choose to compare the sequence $a_n$ to.  One is $b_n=\frac{1}{n}$ and the other $c_n\frac{1}{e^n}$. The following inequalities are both true:
+        \[ a_n= \frac{1}{ne^n}<\frac{1}{n}=b_n\]
+        and
+        \[ a_n= \frac{1}{ne^n}<\frac{1}{e^n}=c_n\]
+        However the, if we consider the corresponding series for $b_n$ and $c_n$, we see that
+        \[\sum_{n=1}^\infty \frac{1}{n}\to \infty\quad  \text{ Harmonic series diverges} \]
+        and 
+        \[\sum_{n=1}^\infty \frac{1}{e^n} =\frac{1}{1-e^{-1}} \quad \text{ Geometric series with } r=\frac{1}{e} \]
+        A mantra I use is ``smaller than small is good", meaning if the inequality we have is $<$, we want to compare to a finite series.  Thus we can use direct comparison of $a_n$ with $c_n$ to conclude that $\sum_{n=1}^\infty a_n$ is convergent.
+        \item  Note that we cannot use direct comparison to approach this series, as the inequality 
+        \[\frac{1}{\sqrt{2n+1}}<\frac{1}{\sqrt{2n}} \]
+        is not a useful one, as the series of $\frac{1}{\sqrt{2n}}$ is divergent (smaller than big is a bad comparison).  This tells us we might want to use the limit comparison test. Let's try it with the same comparison sequence. The limit of the the two sequences is
+        \[\lim_{n\to\infty} \frac{\sqrt{2n+1}}{\sqrt{2n}} = 1 \]
+        Since the limit of the ratio of the two sequences is a finite number, we can conclude, using the limit comparison test, that $\sum_{n=1}^\infty \frac{1}{\sqrt{2n+1}}$ diverges.
+        \item[5.] We can confirm that this is a geometric series by taking the ratio of consecutive terms. Let $\displaystyle a_n = \frac{e^{2n+1}}{5\pi^{3n-2}}$. Then $\displaystyle \frac{a_{n+1}}{a_n} = \frac{e^{2(n+1)+1}}{5\pi^{3(n+1)-2}}\cdot \frac{5\pi^{3n-2}}{e^{2n+1}}=\frac{e^2}{\pi^3}<1$. The fact that the ratio is a constant confirms it is a geometric series, and the ratio less than 1 means the series confirms. Note: if the functions of $n$ in the exponents are all linear, then the series will be geometric. The sum of a convergent geometric series is $\frac{\text{first term}}{1-\text{ratio}}$. Here, noting that the first term is when $n=2$ the first term is $\frac{e^5}{5\pi^4}$. The sum is thus $\frac{e^5}{5\pi^4\cdot(1-\frac{e^2}{\pi^3})}$
+        \item[6.] One of the most fundamental series we encounter is \[\frac{1}{1-x} = 1+x+x^2+\cdots = \sum_{k=0}^\infty x^k,\]
+        which holds for $|x|<1$. If we do some factoring in the denominator, we can rewrite $f(x)$ as
+        \[f(x) = \frac{1}{c}\cdot \frac{1}{1-(-x)}\]
+        \[ \frac{1}{c}\cdot \frac{1}{1-(-x)} = \frac{1}{c}\sum_{k=0}^\infty (-x)^k = \sum_{k=0}^\infty \frac{(-1)^k x^k}{c} \]
+        \item[7.] We know the power series representation $\frac{1}{1-x} = \sum_{k=0}^\infty x^k$ holds for $|x| < 1$ (shown using the geometric series test). While we may be tempted to just square both sides of the equation, squaring an infinite sum is sometimes doable, but not trivial. Another strategy is to take the derivative of both sides of the equation with respect to $x$. This gives
+        $$\left(\frac{1}{1-x}\right)^2 = \frac{1}{(1-x)^2}=  \sum_{k=1}^\infty kx^{k-1}$$
+        Now multiply both sides of the equation by x:
+         $$\frac{x}{(1-x)^2} =  \sum_{k=1}^\infty kx^k$$
+        \item[8.] Among the series we should have memorized is the power series for $\ln(1+x)$.
+        \[\ln(1+x) = \sum_{k=0}^\infty (-1)^{k} \frac{x^{k+1}}{k+1} \quad \text{ for } -1<x\le 1\]
+ Replacing $x$ with $x^{\frac{1}{2}}$ we get
+         \[\ln(1+x^\frac{1}{2}) = \sum_{k=0}^\infty (-1)^{k} \frac{x^{\frac{1}{2}(k+1)}}{k+1} \]    
+    \end{enumerate}
+
+\end{document}

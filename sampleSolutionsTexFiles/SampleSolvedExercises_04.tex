@@ -1,0 +1,85 @@
+\documentclass{article}
+\usepackage[margin=1in, top = .8in, left=.8in]{geometry}
+\usepackage{comment, hyperref}
+\usepackage{amsmath, amssymb}
+\usepackage{framed}
+\usepackage{enumitem}
+\usepackage{comment}
+\usepackage{tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+
+\usepackage{url}
+\everymath{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+
+
+\begin{document}
+\begin{center}
+\textbf{
+    Sample problems with solutions for Homework 4}
+\end{center}
+    \begin{enumerate}
+\item Calculate $\int_3^7 x^2 +\pi$ by evaluating it as the limit of a Riemann Sum. 
+\item For examples of finding critical values, for classifying critical values as local max/local min/neither, and for finding absolute extrema, see these pages:\\ \url{http://tutorial.math.lamar.edu/Classes/CalcI/CriticalPoints.aspx}\\
+ \url{http://tutorial.math.lamar.edu/Classes/CalcI/MinMaxValues.aspx}\\
+ \url{http://tutorial.math.lamar.edu/Classes/CalcI/AbsExtrema.aspx}
+\item Use the following identity (which we will be able to verify soon) $\int_{0}^x t\sin(t^2) \,dt= -\frac{1}{2}\cos(x^2)+\frac{1}{2} $, evaluate the following:
+\begin{enumerate}
+\item $\int_0^{\sqrt{\pi}} t\sin(t^2)\ dt$ 
+\item $\int_{\sqrt{\pi}}^{\sqrt{2\pi}} t\sin(t^2)\ dt$ 
+\item $\int_{-\sqrt{3\pi}}^{\sqrt{3\pi}} t\sin(t^2)\ dt$ 
+\end{enumerate}
+\item Graph the function $f(x)=2x+7$ on the interval $[-2,1]$, and use this to calculate $\int_{-2}^1 f(x)\ dx$ {\bf without} taking an antiderivative, but rather using basic geometry.
+\item Write the following sum as a definite integral.  Do not evaluate, (though soon we will learn a way to do this). 
+    \[\lim_{k\rightarrow\infty} \sum_{i=0}^{k} \frac{1}{k}\cdot\frac{i}{k}\cdot e^{\frac{i}{k}}\]
+    \end{enumerate}
+    \newpage
+    
+    
+    
+    \begin{center}
+        \textbf{\Large{Solutions}}
+    \end{center}
+\begin{enumerate}
+    \item The sequence of right-hand end points of the interval is given by
+\[x_i = 3+i\cdot \frac{7-3}{n} = \frac{4}{n},\quad i = 1,2,\dots, n  \]
+
+Note that the last point, when $i=n$ is 
+\[ x_n = 3 + n\cdot \frac{4}{n} = 3 + 4 = 7 = b \]
+
+Then we have 
+\begin{eqnarray*}
+A(n) &=& \sum_{i=1}^n \overbrace{f\left(3 +\frac{4i}{n}\right)}^{\text{height}}\cdot \underbrace{\frac{4}{n}}_{\text{width}} \\ [1em]
+&=& \sum_{i=1}^n \left(\left(3+\frac{4i}{n}\right)^2 + \pi\right) \frac{4}{n} \\[1em]
+&=& \frac{4}{n}\sum_{i=1}^n\left(9 + 24\frac{i}{n}+16\frac{i}{n^2} +\pi\right)   \\[1em]
+&=& \frac{36}{n} \sum_{i=1}^n 1 + \frac{96}{n^2}\sum_{i=1}^n i + \frac{64}{n^3} \sum_{i=1}^n i^2  + \frac{4\pi}{n} \sum_{i=1}^n 1\\[1em]
+&=&  \frac{36}{n} \cdot n + \frac{96}{n^2}\cdot \frac{n(n+1)}{2} + \frac{64}{n^3} \frac{n(n+1)(2n+1)}{6} + \frac{4\pi}{n}n \\[1em]
+A(n)&=& 36 + 4\pi + 48 \frac{n(n+1)}{n^2} + \frac{32}{3} \frac{n(n+1)(2n+1)}{n^3} \\[1em]
+A(n) &=& 36 + 4\pi + 48 \frac{n^2 + O(n)}{n^2} + \frac{32}{3} \frac{2n^3 + O(n^2)}{n^3}
+\end{eqnarray*} 
+
+The actual area is equal to the limit of this function:
+
+\[\int_3^7 x^2 +\pi\ dx = \lim_{n\to \infty} A(n) = 36+4\pi +48+\frac{64}{3}\] 
+\item Solutions to each example is given on the websites.
+\item Let's do this:
+
+\begin{enumerate}[label=(\roman*)]
+    \item $\int_0^{\sqrt{\pi}} t\sin(t^2)\ dt = -\frac{1}{2}\cos((\sqrt{\pi})^2) + \frac{1}{2} = -\frac{1}{2}(-1) + \frac{1}{2} = 1$  
+   \item $\int_{\sqrt{\pi}}^{\sqrt{2\pi}} t\sin(t^2)\ dt = \int_{0}^{\sqrt{2\pi}} t\sin(t^2)\ dt-\int_{0}^{\sqrt{\pi}} t\sin(t^2)\ dt=-1$
+   \item $\int_{-\sqrt{3\pi}}^{\sqrt{3\pi}} t\sin(t^2)\ dt=\int_{-\sqrt{3\pi}}^{0} t\sin(t^2)\ dt+\int_{0}^{\sqrt{3\pi}} t\sin(t^2)\ dt = 0 $ 
+\end{enumerate}
+\item Using this link, we can see the area is $9+9=18$, the area of a rectangle and a triangle.  The integral is also computed in desmos to see this.
+\item Writing the limit of a summation as a definite integral is definitely more tricky than the other direction, that is of writing an integral as a Riemann sum.  This is made more difficult by the fact that there is more than one acceptable answer when writing the limit of a sum as an integral.  However, there is a 'natural' answer.
+
+A tricky piece of this puzzle is the fact that the first term of this sum is 0 (when $i=0$).  Thus we can rewrite the sum as
+\[\sum_{i=1}^k \frac{1}{k} \cdot \frac{i}{k} \cdot e^{\frac{i}{k}}\]
+Looking at the definition of a Riemann sum, the first think we might identify is what part of this summation corresponds to $f(a+i\Delta x)$ and which piece corresponds to $\Delta x$.  $\Delta x$, in this class, will always look like a constant over $k$ (or whatever variable we're using), where the numerator is the length of the interval (why?).  From this I gues $\Delta x = \frac{1}{k}$.  Thus our integral will be over an interval of length 1.
+
+Again, there isn't one way to approach exercise, but since we don't see any $+$ signs showing up, we might assume that $a=0$, and since the length of the interval is 1, we deduce that $b=1$.  
+
+Now to find $f(x)$, we can replace $\frac{i}{k}$ with $x$ everywhere in the summation (why?).  This tells us $f(x) = xe^x$.  This is everything we need.  The limit of this sum is
+\[\lim_{k\to \infty} \sum_{i=1}^k \frac{1}{k} \cdot \frac{i}{k} \cdot e^{\frac{i}{k}} = \int_0^1 xe^x\ dx\]
+    \end{enumerate}
+\end{document}

@@ -1,0 +1,84 @@
+\documentclass{article}
+\usepackage[margin=1in, top = .8in, left=.8in]{geometry}
+\usepackage{comment}
+\usepackage{amsmath, amssymb}
+\usepackage{framed}
+\usepackage{enumitem}
+\usepackage{comment}
+\usepackage{tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+
+\usepackage{url}
+\everymath{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\everymath{\displaystyle}
+
+\begin{document}
+\begin{center}
+\textbf{
+    Sample problems with solutions for Homework 5}
+\end{center}
+    \begin{enumerate}
+    \item If you need to see some examples of $u/du$ substitution, see\\
+    \url{http://tutorial.math.lamar.edu/Classes/CalcI/SubstitutionRuleIndefinitePtII.aspx}
+                        \item Given $F'(x)=f(x)$, $G'(x) = F(x)$, and $\int_a^b e^x G(x)\ dx = 42$, evaluate $\int_a^b e^xf(x)\ dx$, using the information on the following table. \\
+                        \begin{center}
+                        \begin{tabular}{|c|c|c|c|}
+                        \hline
+                        $x$ & $f(x)$ & $F(x)$ & $G(x)$  \\
+                        \hline
+                        $a$ & $2$ & $4$ & $-2$\\
+                        \hline
+                        $b$ & $-1$ & $5$ & $8$ \\
+                        \hline 
+                        \end{tabular}
+                        \end{center}
+                        \medskip
+                    \item The function $f(x) = c\ln(1+x^2)$ defines a probability density function on the interval $[0, 1]$.
+                    \begin{enumerate}
+                        \item Use technology to estimate the value of $c$.
+                        \item Using this value for $c$, find the expected value of this distribution. Evaluate the integral without using technology.
+                    
+                    \end{enumerate}
+    \end{enumerate}
+    \begin{center}
+        \textbf{\Large{Solutions}}
+    \end{center}
+    \begin{enumerate}
+        \item[2.] To evaluate $\int_a^b e^xf(x)\ dx$, we use integration by parts.
+        \begin{itemize}
+            \item $u=e^x$
+            \item $du = e^x\ dx$
+            \item $dv = f(x)\ dx$
+            \item $v=F(x)$
+        \end{itemize}
+        Now using the formula for integration by parts, we get:
+        \begin{eqnarray*}
+        \int_a^b e^xf(x)\ dx &=& e^xF(x)\biggr|_a^b - \int_a^b e^x F(x)\ dx 
+        \end{eqnarray*}
+        The first term we can compute using the provided table, but the resulting integral will require another application of integration by parts:
+        \begin{itemize}
+            \item $w = e^x$
+            \item $dw = e^x\ dx$
+            \item $dp = F(x)] dx$
+            \item $p=G(x)$
+        \end{itemize}
+        Then we can compute the needed integral:
+        \[\int_a^b e^x F(x)] dx =e^xG(x)\biggr|_a^b -\int_a^b e^x G(x)\ dx \]
+        We can compute everything here with that was given, so we can finish:
+        \[\int_a^b e^xf(x)\ dx = e^xF(x)\biggr|_a^b -\left(e^xG(x)\biggr|_a^b -\int_a^b e^x G(x)\ dx \right) =\]
+        \item[3.] \begin{enumerate}
+            \item Entering the following into Wolfram alpha:
+            ``\verb!integral from 0 to 1 of ln(1 + x^2)!''
+            gives the result $0.2639$. Thus $c \approx \frac{1}{0.2639} \approx 3.789$.
+            \item The expected value is given by the following integral:
+            $\int_0^1 cx\ln(1+x^2)\,dx$. To evaluate this integral, we'll begin with a $u/du$ substitution, with $u=1+x^2$, $du = 2x\,dx$, giving
+            \[\int_0^1 cx\ln{(1+x^2)}\,dx = \frac{c}{2} \int_0^1 2x\ln(x^2+1)\,dx = \frac{c}{2}\int_1^2 \ln{u}\,du\]
+            We have previously used integration by parts to find that $\int \ln{x} \,dx = x\ln{x}-x+C$. So
+           \[ \frac{c}{2}\int_1^2 \ln{u}\,du = \frac{c}{2}(u\ln u - u)\Big|_1^2 =\frac{c}{2}(2\ln2-2 -(0-1)) =c(\ln2-\frac{1}{2})\approx0.193c \approx 0.732\]
+
+        \end{enumerate}
+        
+    \end{enumerate}
+\end{document}

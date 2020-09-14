@@ -1,0 +1,66 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amsthm,amssymb,fullpage,graphicx,fancyhdr,color,enumitem,amsthm,setspace,indentfirst,booktabs,multicol,hyperref}
+\usepackage{tikz,tikz-3dplot,pgfplots,mathtools, graphicx}
+\usetikzlibrary{tikzmark,positioning,shapes,arrows,quotes,patterns,angles,calc,decorations.pathreplacing}
+\tikzset{every picture/.style={remember picture}}
+\usepackage{tikzsymbols}
+\usepackage{collectbox}
+\usepackage{array}
+
+
+\def\scrr{\underbar{\hskip1.3in}}
+\setlength{\headheight}{10pt}
+\setlength{\headsep}{7pt}
+\setlength{\parindent}{0pt}
+\def\ds{\displaystyle}
+\newcommand{\ddx}{\frac{d}{dx}}
+\theoremstyle{definition}
+\newtheorem{exmp}{Example}[section]
+\newtheorem{defn}{Definition}[section]
+\pagestyle{fancy}
+\def\Red{\color{red}}
+\def\Black{\color{black}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+
+ \renewcommand{\tilde}{\widetilde}
+
+ \everymath{\displaystyle}
+
+ \begin{document}
+ \begin{spacing}{1.5}
+\lhead{Comp 3007}\chead{} \rhead{\bf Sample}
+
+\begin{enumerate}
+    \item \href{google.com}{description}
+    \item  Functions, variables, constants, and mathematical quantities in general should be surrounded in dollar signs, $f(x)$, my favorite variable $\zeta$.
+    \begin{enumerate}
+        \item You can do lists within lists.
+        \item Fractions aren't too bad: $\frac{(x+y)z}{\sigma^2}$
+    \end{enumerate}
+    \item Powers are good, but be careful with brackets: $e^{x^2+y}$
+    \item Let's center something, which can be used to emphasize important quantities.  Let's also show subscripts and summations with this:
+    \[ \sum_{k=1}^n (a_k-c) = \pi\cdot \prod_{i=1}^5 i^i  \]
+    You can also use double dollar signs, but I would avoid this:
+    $$\sum_{k=1}^n (a_k-c) = \pi\cdot \prod_{i=1}^5 i^i $$ 
+    Note: this equality has no mathematical value or sense, it is merely to show symbols.
+    \item Natural log should be typed like $\ln(A)$, not $ln(A)$.  Likewise for things like $\sin(x)$
+    \item Multiple line equations are tricky at first, but here is a template below.  The [1em] you see in the code is for spacing. You can change this adjust this if you'd like. 
+    \begin{eqnarray*}
+    (x-y)^3 &=& (x-y)(x-y)^2 \\ [1em]
+    &=& (x-y)(x^2-2xy+y^2) \\ [1em]
+    &=& x^3-2x^2y+xy^2-yx^2+2xy^2-y^3 \\ [1em]
+    (x-y)^3 &=& x^3 - 3x^2y + 3xy^2 -y^3 
+    \end{eqnarray*}
+    \item The real numbers are $\R$. This is a command I defined in this document. Likewise we have $\N, \Z$.
+    \item Greek letters are generally easy: $\alpha, \beta, \theta$
+    \item If you are putting brackets or parentheses around something large, use left and right delimiters:
+    \[ (\frac{A^2}{B^3}) \text { vs } \left(\frac{A^2}{B^3}\right) \]
+    \item You can make other commands.  For example, it is tedious to keep writing $\frac{d}{dx}$, but if we shorten it, we can make $\ddx$.  If you want to define your own functions and have any issues, please let me know.  With that said, I honestly don't use too many custom commands.
+\end{enumerate}
+
+
+\end{spacing}
+\end{document}
+

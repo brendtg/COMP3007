@@ -4,4 +4,4 @@ This repo contains many of the major resources for our class. Feel free to contr
 
 # Useful links:
 
-[Desmos.com](desmos.com)
+[Desmos.com](https://www.desmos.com)

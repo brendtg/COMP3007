@@ -10,8 +10,8 @@ This repo contains many of the major resources for our class. Feel free to contr
 
 # Useful links:
 
-[Desmos.com](https://www.desmos.com)
-[Overleaf.com](https://www.overleaf.com)
-[Wolfram Alpha](https://www.wolframalpha.com)
-[Symbolab](https://www.symbolab.com)
+- [Desmos.com](https://www.desmos.com)
+- [Overleaf.com](https://www.overleaf.com)
+- [Wolfram Alpha](https://www.wolframalpha.com)
+- [Symbolab](https://www.symbolab.com)
 

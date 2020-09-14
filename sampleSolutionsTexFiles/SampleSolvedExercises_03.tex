@@ -1,0 +1,66 @@
+\documentclass{article}
+\usepackage[margin=1in, top = .8in, left=.8in]{geometry}
+\usepackage{comment}
+\usepackage{amsmath, amssymb}
+\usepackage{framed}
+\usepackage{enumitem}
+\usepackage{comment}
+\usepackage{tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+
+\usepackage{url}
+\everymath{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+
+
+\begin{document}
+\begin{center}
+\textbf{
+    Sample problems with solutions for Homework 3}
+\end{center}
+    \begin{enumerate}
+        \item What is the behavior of each of the following sequences as $n$ gets large?
+        \begin{enumerate}
+            \item $a_n = 3^n$
+            \item $b_n = \left(\frac{1}{10}\right)^n$
+            \item $c_n = 0.999^n$
+            \item $d_n = (-.5)^n$
+            \item $e_n = (-4)^n$
+        \end{enumerate}
+        \item Find the derivative of $f(x)=\sum_{k=0}^nx^k$
+        \item Find the derivative of the function $f_k(\mu) = \ln\left(\prod_{k=1}^{n}e^{(x_k-\mu)^2}\right)$
+        
+    \end{enumerate}
+    
+   \newpage 
+    \begin{center}
+        \textbf{\Large{Solutions}}
+    \end{center}
+    
+    \begin{enumerate}
+        \item 
+        \begin{enumerate}[label=(\roman*)]
+            \item As $n$ gets larger, $a_n$ will grow withouth bound, so
+            \[\lim_{n\to\infty} a_n \to \infty\]
+            \item $\frac{1}{10}$ is a positive number less than 1, so each subsequent power will be one tenth the value of the previous term, so these terms will get very small - as close to 0 as possible. In other words,
+            \[\lim_{n\to\infty} b_n = 0\]
+            \item Though much slower than the last example, this sequence is still a positive number less than one, so this sequence will diminish to 0.
+            \[\lim_{n\to\infty} c_n =0\]
+            \item the terms of this sequence will alternate between positive and negative values, but it would e incorrect to assume that the limit doesn't exist because of this.  Since the magnitude of $-.5$ is less than 1, each power will (in magnitude) will diminish, so that terms of the sequence will become indistinguishable from 0.
+            \[\lim_{n\to \infty} d_n = 0\]
+            \item The terms of $e_n$ will alternate like the last sequence, but the magnitudes will only grow, since $|-4|>1$.  So as $n$ grows, we will see a pattern of a large positive number, a larger negative number, an even larger positive number, and so on.  Thus the limit doesn't exists.  It is a common mistake to say that the limit is infinity, but this is not the case.  Please review the definition (on your own, with me, or with the class) of what it means for a limit to be infinity if it isn't clear why this limit doesn't exist.  (We could say the $\lim_{n\to\infty} |e_n|\to \infty$ 
+        \end{enumerate}
+        \item When we get to the topic of Taylor series, it will hopefully become second nature to take the derivative of sum by bringing the derivative inside the summation. However we need to be careful that this is valid.  For this function, it is very tempting to say
+        \[\frac{d}{dx}\left[\sum_{k=0}^nx^k\right] =\sum_{k=0}^n\frac{d}{dx}\left[x^k\right] \]
+        However, the power rule which tells us $\frac{d}{dx}[x^n]=nx^{n-1}$ is not valid when $n=0$, which is exactly what the first term of this summation is.  For every other term in the summation, the power rule applies.  Thus to take the derivative, we split the sum, and then take the derivative:
+            \[\frac{d}{dx}\left[\sum_{k=0}^nx^k\right] =\frac{d}{dx}\left[1+\sum_{k=1}^nx^k\right]=\frac{d}{dx}[1]+\sum_{k=1}^n\frac{d}{dx}\left[x^n\right]=0+\sum_{k=1}^n kx^{k-1} \]
+       \item If we don't use properties of natural log, this exercise becomes very difficult, so we start with that before differentiating:
+       \begin{eqnarray*}
+        f'(\mu) &=& \frac{d}{d\mu}\left[\ln\left(\prod_{k=1}^{n}e^{(x_k-\mu)^2}\right)  \right] \\[1em]
+        &=& \frac{d}{d\mu}\left[ \sum_{k=1}^n\ln\left(e^{(x_k-\mu)^2}\right)\right]\\[1em]
+        &=&  \sum_{k=1}^n\frac{d}{d\mu}\left[\ln\left(e^{(x_k-\mu)^2}\right)\right]\\[1em]
+        &=& 
+       \end{eqnarray*}
+    \end{enumerate}
+\end{document}

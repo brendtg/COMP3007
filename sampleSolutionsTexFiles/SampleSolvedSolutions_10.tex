@@ -1,0 +1,59 @@
+\documentclass{article}
+\usepackage[margin=1in, top = .8in, left=.8in]{geometry}
+\usepackage{comment,hyperref}
+\usepackage{amsmath, amssymb}
+\usepackage{framed, nicefrac}
+\usepackage{enumitem}
+\usepackage{comment}
+\usepackage{tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+
+\usepackage{url}
+\everymath{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\everymath{\displaystyle}
+
+\begin{document}
+\begin{center}
+\textbf{
+    Sample problems with solutions for Homework 10}
+\end{center}
+    \begin{enumerate}
+        \item Approximate $\sqrt{2}$ to within three decimal places using Newton's method.
+        \item Evaluate $\int_0^1 \int_{\sqrt{x}}^{1} \cos(y^3)\ dy\ dx$.
+        \item A uniform probability density function is defined on the region in the first quadrant bounded by $y=\sqrt{x}$ and $x=4$. Find the probability that a pair $(x,y)$ satisfies $y<1-\frac{1}{4}x$.
+        \item If you were converting a solid region to polar coordinates and its base is defined by $x^2+y^2\leq 0.64$, what should be the range for $r$ and $\theta$?
+        \item Find the volume of the solid bounded between the surfaces $f(x,y) = 4-x^2-3y^2$ and $g(x,y) = 3x^2+y^2$. You can see a visualization of this solid here \url{https://www.geogebra.org/3d/skmebp5c}
+        
+    \end{enumerate}
+    \begin{center}
+        \textbf{\Large{Solutions}}
+    \end{center}
+    \begin{enumerate}
+    \item To find the requested value, we need to think out side of the box a a little. Consider the function $f(x) = x^2-2$. This function has a root when $x=\sqrt{2}$. Thus, if we use Newton's method to find the zero of $f(x)$, then we will really have found an approximation for $\sqrt{2}$. Let's start with an initial guess of $x_0 = 2$. Newton's method will give us the next term as follows:
+    \[x_1 = x_0 - \frac{f(x_0)}{f'(x_0)} = 2 - \frac{4}{4} = 1\]
+    
+    If we continue this process we will get the following sequence of approximations $\{1,1.4166,1.41421,1.4142136\}$
+
+    \item If we try to integrate the function with the order of integration that is given, we will quickly see that this isn't possible as $\cos(y^3)$ is not integrable. Thus we must change the order of integration.  One should get the following integral after changing the order:
+    \[\int_0^{1}\int_0^{y^2} \cos(y^3)\ dx\ dy\]
+    
+    Let's integrate!
+    
+    \begin{eqnarray*}
+    \int_0^{1}\int_0^{y^2} \cos(y^3)\ dx\ dy &=& \int_0 ^1 \left(x\cos(y^3) \biggr|_{x=0}^{x=y^2} \right) dy \\[1em]
+    &=& \int_0^1 y^2 \cos(y^3) dx \\[1em]
+    &=& \frac{1}{3} \sin(u) \biggr|_0^1 \\[1em]
+    &=& \frac{1}{3}\sin(1)
+    \end{eqnarray*}
+    
+    \item The region in the first quadrant bounded by $y=\sqrt{x}$ and $y=4$ is shown here XXXBrendt insert url for Desmos page here. The probability density function is a constant $c$ defined over this 2D region. So we need $\int_0^4\int_0^{\sqrt{x}} c \,dydx = c\int_0^4\int_0^{\sqrt{x}} \,dydx = 1$. Since the integrand is $1$, the double integral actually represents the area of the region, which is $\int_0^4 \sqrt{x}\,dx = \frac{16}{3}$. This tells us that $c=\frac{3}{16}$. The region constrainted by $y < 1-\frac{1}{4}x$ is shown here XXXBrendt insert link for second region here. This probabiity of this region can be defined either by integrating with respect to $y$ on the inside integral, or vice versa. If the 
+    \item The region is a disk of radius $r=0.8$. So the region is covered by $0\leq \theta \leq 2\pi$ and $0 \leq r \leq 0.8$.
+    \item The function $f(x,y)$ defines a downward-facing elliptical paraboloid and $g(x,y)$ defines an upward-facing elliptical paraboloid. As seen in the image, the intersection of these two surfaces looks like the edge of a saddle. To find the ``top-view'' formula of the region bounded by these two surfaces, we find their intersection, where $f(x,y) = g(x,y)$. This gives $4-x^2-3y^2 = 3x^2+y^2$. Solving gives $x^2+y^2=1$, a disk of radius 1. This disk defines the region of integration in polar coordinates. The volume is given by the following integral, where $R$ is the region of integration
+    $$\iint_R f(x,y)-g(x,y) \,dA =
+    \iint_R 4-x^2-3y^2-(3x^2+y^2)\,dA = \iint_R 4-4x^2-4y^2\,dA $$
+    $$= \int_0^{2\pi}\int_0^1 (4-4r^2) \,rdrd\theta = \int_0^{2\pi}\int_0^1 (4r-4r^3) \,drd\theta = 2\pi$$
+    \end{enumerate}
+
+\end{document}

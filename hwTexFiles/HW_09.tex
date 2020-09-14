@@ -1,0 +1,121 @@
+\documentclass{article}
+\usepackage[margin=1in, top = .8in, left=.8in]{geometry}
+\usepackage{comment}
+\usepackage{amsmath, amssymb}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{comment}
+\usepackage{tikz,pgfplots}
+\usepgfplotslibrary{fillbetween}
+\pgfplotsset{compat=1.15}
+\usepackage[hyphens]{url}
+
+\begin{document}
+
+
+\begin{center}
+    \large \textbf{Homework 9}
+\end{center}
+    %\item[\textbf{Week 9}]
+        \begin{itemize}
+            %\item Sync (Week 8):
+            \item Part 1
+                \begin{enumerate}
+                    \item Recall that you previously found the Taylor series expansion centered at $x=0$ for $\sin x$. $$\sin x = \sum_{n=0}^\infty (-1)^n \frac{x^{2n+1}}{(2n+1)!}$$
+                        \begin{enumerate}
+                            \item Write $\displaystyle \int_{2}^{3} \frac{\sin x}{x} \, dx$ as an infinite sum.
+                            \item Add the first four nonzero terms of the infinte sum to get a numerical estimate of the integral.
+                        \end{enumerate}
+                    \item The relevant values for the pairs $(i,j)$ in the doubly-indexed sum are depicted in the graph below. $$\sum_{i=1}^{5}\sum_{j=0}^{i-1} i^2j^3$$ 
+                    
+                % Apologies for this awful tikz graph
+                \begin{center}
+                \begin{tikzpicture}[baseline=2cm]
+                % axes
+                \draw[<->] (-1.5,0) -- (3,0) {};
+                \draw[<->] (0,-1.5) -- (0,2.5) {};
+
+                % x-axis labels
+                \draw (0.5, .1) -- (0.5, -.1) {};
+                \draw (1.0, .1) -- (1.0, -.1) {};
+                \draw (1.5, .1) -- (1.5, -.1) {};
+                \draw (2.0, .1) -- (2.0, -.1) {};
+                \draw (2.5, .1) -- (2.5, -.1) {};
+                \node at (0.5, -.5) {1};
+                \node at (1.0, -.5) {2};
+                \node at (1.5, -.5) {3};
+                \node at (2.0, -.5) {4};
+                \node at (2.5, -.5) {5};
+
+                % y-axis labels
+                \draw (-.1, 0.5) -- (.1, 0.5) {};
+                \draw (-.1, 1.0) -- (.1, 1.0) {};
+                \draw (-.1, 1.5) -- (.1, 1.5) {};
+                \draw (-.1, 2.0) -- (.1, 2.0) {};
+                \node at (-.5, 0.5) {1};
+                \node at (-.5, 1) {2};
+                \node at (-.5, 1.5) {3};
+                \node at (-.5, 2) {4};
+
+                \fill (0.5, 0) circle (0.066) {};
+                \fill (1, 0) circle (0.066) {};
+                \fill (1.5, 0) circle (0.066) {};
+                \fill (2, 0) circle (0.066) {};
+                \fill (2.5, 0) circle (0.066) {};
+                
+                \fill (1, 0.5) circle (0.066) {};
+                \fill (1.5, 0.5) circle (0.066) {};
+                \fill (2, 0.5) circle (0.066) {};
+                \fill (2.5, 0.5) circle (0.066) {};
+                
+                \fill (1.5, 1) circle (0.066) {};
+                \fill (2, 1) circle (0.066) {};
+                \fill (2.5, 1) circle (0.066) {};   \fill (2, 1.5) circle (0.066) {};
+                \fill (2.5, 1.5) circle (0.066) {};
+           
+                \fill (2.5, 2) circle (0.066) {};
+                
+
+                \node at (3.2, 0) {$i$};
+                \node at (0, 2.7) {$j$};
+                \end{tikzpicture}
+                \end{center}
+                
+                 Which of the following doubly-indexed sums has the same value?
+                 
+                 \begin{enumerate}
+                     \item $\displaystyle \sum_{j=1}^{5}\sum_{i=0}^{j-1} i^2j^3$
+                     \item $\displaystyle \sum_{j=0}^{4}\sum_{i=j+1}^{5} i^2j^3$
+                     \item $\displaystyle \sum_{j=0}^{4}\sum_{i=1}^{j} i^2j^3$
+                     \item $\displaystyle \sum_{j=1}^{5}\sum_{i=j}^{4} i^2j^3$
+                 \end{enumerate}
+                    
+                    \item Let  $$p(x,y) = \begin{cases} 
+                        c(x^2+y^2) & \text{if $x\in {1, 2, 4}$ and $y\in{1, 3}$} \\
+                        0 & \text{otherwise} \\
+                        \end{cases}
+                        $$
+                        \begin{enumerate}
+                            \item Find $c$ so that $p(x,y)$ defines a valid (joint) probability mass function.  That is, find the value of $c$ so that $\displaystyle \sum_x \sum_y p(x, y) = 1$. 
+                            \item Find $\displaystyle E[XY] =\sum\sum xyp(x,y)$.
+                        \end{enumerate}
+                    \item Find and sketch the domain of the function $\displaystyle h(x,y) = \frac{\sqrt{4-x^2-y^2}}{\ln(x+y+1)}$.
+                        %\item Approximate the following finite sum, for large values of $N$:
+                        %$$\frac{1-1+ \frac{1}{2}-\frac{1}{3!}+\cdot \cdot \cdot + \frac{(-1)^{N-k}}{(N-k)!}} {k!}$$
+                \end{enumerate}
+            %\item Async (Week 9):
+            \item Part 2
+                \begin{enumerate}
+                    \item Find three positive numbers whose sum is 100 and whose product is a maximum. (Once you create the objective function, there will be only one critical point satisfying the criteria --- you are not obligated to show that the product is maximum at that critical point.)
+                    \item Suppose that we define
+                    $$J(\theta_0, \theta_1) = \frac{1}{2m}\sum_{i=1}^m(\theta_0 + \theta_1x^{(i)} - y^{(i)})^2$$
+                    Find $\displaystyle \frac{\partial J}{\partial \theta_0}$ and $\displaystyle \frac{\partial J}{\partial \theta_1}$.
+                    
+                    \item Let $\displaystyle \ell(\vec{x}:\mu, \sigma) = \ln\left(\prod_{k=1}^{n} \frac{1}{\sqrt{2\pi\sigma^2}}\exp\left(-\frac{(x_k-\mu)^2}{2\sigma^2}\right)\right)$.  Treating the values of $\vec{x} = [x_1, x_2, ..., x_n]$ as constants, at what value of $\mu$, $\sigma$ does $\ell(\vec{x}:\mu, \sigma)$ have a maximum?  Please provide calculations and reasoning to support your claim.
+                    \item Convert the point at $r=7$, $\theta = 2\pi/3$ to rectangular coordinates.
+                    \item Find all polar representations of the point $(-4, 3)$. Use radians or degrees, but make it clear which you are using. You may use technology to find the numerical values of the angles. Give them to within three decimal places.
+                    \item Convert the function $z=f(x,y) = (x^2+y^2)(x^2+y^2+1)$ to polar coordinates, then graph the function on the region $r \leq 1$.
+                    \item Find the linearization of the function $\displaystyle z=f(x,y) = \ln(x^2 +3y)$ centered at the point $(2, -1)$, and use it to estimate $f(1.97, -.9)$. 
+                \end{enumerate}
+        \end{itemize}
+\end{document}

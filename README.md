@@ -11,6 +11,7 @@ This repo contains many of the major resources for our class. Feel free to contr
 # Useful links:
 
 - [Desmos.com](https://www.desmos.com)
+  - [Difference Quotient](https://www.desmos.com/calculator/leofepfiec)
   - [Riemann Sum Example](https://www.desmos.com/calculator/sohaz5irq6)
 - [Overleaf.com](https://www.overleaf.com)
 - [Wolfram Alpha](https://www.wolframalpha.com)

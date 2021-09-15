@@ -9,6 +9,7 @@
 \usepgfplotslibrary{fillbetween}
 \pgfplotsset{compat=1.15}
 \usepackage[hyphens]{url}
+   \everymath{\displaystyle}
 
 \begin{document}
 
@@ -20,17 +21,17 @@
 
     	\item Find the following limits by using limits you already know, and considering order of growth. You do not need to show work.
     	    \begin{enumerate}
-    	        \item $\displaystyle \lim_{n \rightarrow \infty} r^n$, when $r > 1$, when $0\leq r<1$, when $-1 < r < 0$, and when $r < -1$. (Here we are only considering integer values of $n$ as $n\to \infty$)
-    	        \item $\displaystyle \lim_{x\rightarrow \infty} \frac{\pi}{x^2}$
-    	        \item $\displaystyle \lim_{t\rightarrow \infty} t^2-178932t+3.15$
-    	        \item $\displaystyle \lim_{x\rightarrow \infty} e^{-(x-\mu)^2}$
-    	        \item $\displaystyle \lim_{x\rightarrow \infty} \frac{e^x}{1+e^x}$
-    	        \item $\displaystyle \lim_{x\rightarrow \infty} x^2e^{-x}$
-    	        \item $\displaystyle \lim_{x\rightarrow \infty} \ln \left(\frac{1}{x}\right)$ 
-    	        \item $\displaystyle \lim_{x\rightarrow \infty} \frac{\sqrt{x^2+6x}}{x}$
+    	        \item $ \lim_{n \rightarrow \infty} r^n$, when $r > 1$, when $0\leq r<1$, when $-1 < r < 0$, and when $r < -1$. (Here we are only considering integer values of $n$ as $n\to \infty$)
+    	        \item $ \lim_{x\rightarrow \infty} \frac{\pi}{x^2}$
+    	        \item $ \lim_{t\rightarrow \infty} t^2-178932t+3.15$
+    	        \item $ \lim_{x\rightarrow \infty} e^{-(x-\mu)^2}$
+    	        \item $ \lim_{x\rightarrow \infty} \frac{e^x}{1+e^x}$
+    	        \item $ \lim_{x\rightarrow \infty} x^2e^{-x}$
+    	        \item $ \lim_{x\rightarrow \infty} \ln \left(\frac{1}{x}\right)$ 
+    	        \item $ \lim_{x\rightarrow \infty} \frac{\sqrt{x^2+6x}}{x}$
     	    \end{enumerate}
-    	     \item Guess the value of the following limit, then use analytical methods to verify. Show your work. $\displaystyle \lim_{x \rightarrow +\infty} (\sqrt{x^2+6x}-x)$ 
-    	    %\item Create a function for which $\displaystyle \lim_{x\rightarrow +\infty} = 2$ and $\displaystyle \lim_{x\rightarrow -\infty} = -2$. %Practice piecewise-defined notation
+    	     \item Guess the value of the following limit, then use analytical methods to verify. Show your work. $ \lim_{x \rightarrow +\infty} (\sqrt{x^2+6x}-x)$ 
+    	    %\item Create a function for which $ \lim_{x\rightarrow +\infty} = 2$ and $ \lim_{x\rightarrow -\infty} = -2$. %Practice piecewise-defined notation
         	%\item Match functions by asymptotes?
         	
 
@@ -64,7 +65,7 @@
     	\end{center}
 
                   \item Suppose that a snowstorm begins at midnight, and the function $f(t)$ gives the depth of snow in inches on my driveway, where $t$ is the number of hours past midnight. Interpret the statements $f(2) = 3$ and $f'(3) = 2$ in the context of this problem.          
-                 \item Consider the function $\displaystyle y=f(x) = \frac{1}{1+ce^{-x}}$.  Does this function satisfy the differential equation $y'=y(1-y)$?
+                 \item Consider the function $ y=f(x) = \frac{1}{1+ce^{-x}}$.  Does this function satisfy the differential equation $y'=y(1-y)$?
                  \item In the study of probability and statistics, a function that describes the probabilities associated with a random number (more precisely, a ``random variable'') is called a ``cumulative distribution function'' (sometimes abbreviated c.d.f.) A cumulative distribution function $F(x)$ gives the probability that a random variable has a value less than or equal to $x$. Random variables are alternately defined by ``probability density functions,'' which indicate the relative probabilities of different outcomes. These two types of functions are related: the derivative of a cumulative distribution function is a probability density function. Below are two examples of graphs of cumulative distribution functions. Graph their corresponding probability density functions.
                  
  \tikzset{
@@ -99,22 +100,22 @@
 \end{center}
                   \item Find the derivative of each of the following functions. You should confirm all of your answers are correct using a computer algebra system (such as Wolfram Alpha). You should be able to compute derivatives such as these with 100\% accuracy.
                 \begin{enumerate}
-                    \item $\displaystyle f(x) = e^{x^2}$
-                    \item $\displaystyle f(x) = (e^x)^2$
-                    \item $\displaystyle f(t) = \log_{12}(5t)$
-                    \item $\displaystyle f(x) = \frac{e^{bx}}{1+e^{bx}}$
-                    \item $\displaystyle f(b) = \frac{e^{bx}}{1+e^{bx}}$
-                    \item $\displaystyle f(x) = \ln{\left(\left(\sin{(1+x)}\right)^2e^{5x}x^{-2}(-2x^4+7x-8)\right)}$
+                    \item $ f(x) = e^{x^2}$
+                    \item $ f(x) = (e^x)^2$
+                    \item $ f(t) = \log_{12}(5t)$
+                    \item $ f(x) = \frac{e^{bx}}{1+e^{bx}}$
+                    \item $ f(b) = \frac{e^{bx}}{1+e^{bx}}$
+                    \item $ f(x) = \ln{\left(\left(\sin{(1+x)}\right)^2e^{5x}x^{-2}(-2x^4+7x-8)\right)}$
                     
-                    \item $\displaystyle f(x) = \frac{e^{x^2}}{\ln(x^2)}$
-                    \item $\displaystyle f(x) = \ln(\sqrt{x})\cdot \sqrt{x}$
-                    \item $\displaystyle f(x) = \frac{1}{4x^2}$
-                    \item $\displaystyle f(\mu) = \frac{e^{-\mu}\mu^x}{x!}$
+                    \item $ f(x) = \frac{e^{x^2}}{\ln(x^2)}$
+                    \item $ f(x) = \ln(\sqrt{x})\cdot \sqrt{x}$
+                    \item $ f(x) = \frac{1}{4x^2}$
+                    \item $ f(\mu) = \frac{e^{-\mu}\mu^x}{x!}$
                 \end{enumerate}
-                \item Find the derivative of $\displaystyle f(x)=\prod_{k=1}^n (x-a)^k$. 
-                \item Find the derivative of $\displaystyle f_k(x) = \sum_{n=0}^k \frac{x^n}{n!}$.
-                \item Find the derivative of $\displaystyle f(x) = \sum_{n=0}^\infty \frac{x^n}{n!}$, assuming that you can differentiate an infinite sum term-wise. Compare the terms of $f'(x)$ to those of $f(x)$. Based on your observation, can you guess what function $f(x)$ is?
-                \item Find derivative of $\displaystyle f(p) = \ln{\left(\prod_{i=1}^n p^{x_i}(1-p)^{1-x_i}\right)}$. Simplify using the laws of logarithms before differentiating. Note that the values $x_i$ should be treated as unknown constants, while $p$ is the variable of differentiation.
+                \item Find the derivative of $ f(x)=\prod_{k=1}^n (x-a)^k$. 
+                \item Find the derivative of $ f_k(x) = \sum_{n=0}^k \frac{x^n}{n!}$.
+                \item Find the derivative of $ f(x) = \sum_{n=0}^\infty \frac{x^n}{n!}$, assuming that you can differentiate an infinite sum term-wise. Compare the terms of $f'(x)$ to those of $f(x)$. Based on your observation, can you guess what function $f(x)$ is?
+                \item Find derivative of $ f(p) = \ln{\left(\prod_{i=1}^n p^{x_i}(1-p)^{1-x_i}\right)}$. Simplify using the laws of logarithms before differentiating. Note that the values $x_i$ should be treated as unknown constants, while $p$ is the variable of differentiation.
           
                 
            

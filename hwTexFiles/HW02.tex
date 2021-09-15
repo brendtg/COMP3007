@@ -9,7 +9,7 @@
     \usepgfplotslibrary{fillbetween}
     \pgfplotsset{compat=1.15}
     \usepackage[hyphens]{url}
-    
+   \everymath{\displaystyle}
     \newcommand{\fgraff}{
     \begin{minipage}[l][.30\textwidth]{3 in}{
     \begin{tikzpicture}
@@ -69,28 +69,28 @@
                         \item Using the laws of logarithms and properties of summations, show that $$\ln\left(\prod_{k=1}^n \frac{\lambda^{x_k}e^{-\lambda}}{x_k!}\right)=\ln(\lambda)\sum_{k=1}^n x_k -n\lambda - \sum_{k=1}^n \ln(x_k!)$$
                         \item Evaluate each of the following sums.  These same sums will be seen again later in this course in the context of computing the area between a function and the $x$-axis.
                             \begin{enumerate}
-                                \item $\displaystyle \sum_{j=1}^{10} \left(\frac{1}{5}j+4\right)$  (Note that your answer should be a positive numeric value.)
-                                \item $\displaystyle \sum_{j=1}^{8} \frac{1}{2}\left[\left(1+\frac{j}{2} \right)^2 -4\left( 1+ \frac{j}{2}\right) + 5\right]$  (Note that your answer should be a positive numeric value.)
-                                \item $\displaystyle \sum_{j=1}^{n} \frac{4}{n}\left[ \left(\frac{j}{n}\right)^2 - \frac{j}{n} + 1 \right]$  (Note that your answer should be an expression in the variable $n$.)
+                                \item $ \sum_{j=1}^{10} \left(\frac{1}{5}j+4\right)$  (Note that your answer should be a positive numeric value.)
+                                \item $ \sum_{j=1}^{8} \frac{1}{2}\left[\left(1+\frac{j}{2} \right)^2 -4\left( 1+ \frac{j}{2}\right) + 5\right]$  (Note that your answer should be a positive numeric value.)
+                                \item $ \sum_{j=1}^{n} \frac{4}{n}\left[ \left(\frac{4j}{n}\right)^2 - \frac{4j}{n} + 1 \right]$  (Note that your answer should be an expression in the variable $n$.)
                             \end{enumerate}
                         \item Write the summation as an equivalent summation with the index of summation starting at $k=0$.
                             \begin{enumerate}
-                                \item $\displaystyle \sum_{k=1}^n \frac{n!}{(k-1)!(n-k)!}p^k(1-p)^{n-k}$
-                                \item $\displaystyle \sum_{k=4}^{98} 5\left(\frac{2}{3}\right) ^k$
+                                \item $ \sum_{k=1}^n \frac{n!}{(k-1)!(n-k)!}p^k(1-p)^{n-k}$
+                                \item $ \sum_{k=4}^{98} 5\left(\frac{2}{3}\right) ^k$
                             \end{enumerate}
                         \item Evaluate each of the following sums.  Your answer should be an expression in the variable $m$.
                             \begin{enumerate}
-                                \item $\displaystyle \sum_{k=5}^{m} (3k-4)$  (Hint: Consider reindexing to apply the formulas for special sums.)
-                                \item $\displaystyle \sum_{k=2}^{m} (k^3+k^2)$  (Hint: Apply formulas for special sums and then subtract the extra value(s).)
+                                \item $ \sum_{k=5}^{m} (3k-4)$  (Hint: Consider reindexing to apply the formulas for special sums.)
+                                \item $ \sum_{k=2}^{m} (k^3+k^2)$  (Hint: Apply formulas for special sums and then subtract the extra value(s).)
                             \end{enumerate}
                         \item Find the following limits:
                         \begin{enumerate}
-                            \item   $\displaystyle \lim_{x \rightarrow 2^-} \frac{(x^2-4)(x^3-8)}{(x-2)^3}$
-                            \item  $\displaystyle \lim_{h\rightarrow 0} \frac{(x+h)^2-x^2}{h}$
-                            \item $\displaystyle \lim_{x\rightarrow 0} \frac{\left|x\right|}{x}$
-                            \item $\displaystyle \lim_{x\rightarrow 0} \frac{\left|x^2\right|}{x^2}$
-                            \item $\displaystyle \lim_{x \rightarrow 1} \frac{x^2-1}{|x-1|}$ (Hint: Try viewing it as a piecewise function, taking limits from the left and right separately. Graph it using technology to assure you have defined the function correctly.)
-                            \item $\displaystyle \lim_{x \rightarrow 4} \frac{(x+4)(\sqrt{x}-2)}{x^3-64}$
+                            \item   $ \lim_{x \rightarrow 2^-} \frac{(x^2-4)(x^3-8)}{(x-2)^3}$
+                            \item  $ \lim_{h\rightarrow 0} \frac{(x+h)^2-x^2}{h}$
+                            \item $ \lim_{x\rightarrow 0} \frac{\left|x\right|}{x}$
+                            \item $ \lim_{x\rightarrow 0} \frac{\left|x^2\right|}{x^2}$
+                            \item $ \lim_{x \rightarrow 1} \frac{x^2-1}{|x-1|}$ (Hint: Try viewing it as a piecewise function, taking limits from the left and right separately. Graph it using technology to assure you have defined the function correctly.)
+                            \item $ \lim_{x \rightarrow 4} \frac{(x+4)(\sqrt{x}-2)}{x^3-64}$
                         \end{enumerate}
                         \item The following limit questions are quite tricky. Be careful! For example, note that the limit laws only apply if all limits exist. Fully justify your work. You may find the correct answer, but for the wrong reasoning.
     
@@ -100,13 +100,15 @@
                         \end{tabular}
                         \end{center}
                         \begin{enumerate}
-                        \item $\displaystyle \lim_{x\rightarrow -1} (f(x)+g(x))$
-                        \item $\displaystyle \lim_{x\rightarrow -1} \frac{f(x)}{g(x)}$
-                        \item $\displaystyle \lim_{x \rightarrow -2^-} g(f(x))$
-                        \item $\displaystyle \lim_{x \rightarrow -2^+} g(f(x))$
-                        \item $\displaystyle \lim_{x\rightarrow 1^-} f(g(x))$
-                        \item $\displaystyle \lim_{x\rightarrow 2} \frac{f(x)}{g(x)}$
+                        \item $ \lim_{x\rightarrow -1} (f(x)+g(x))$
+                        \item $ \lim_{x\rightarrow -1} \frac{f(x)}{g(x)}$
+                        \item $ \lim_{x \rightarrow -2^-} g(f(x))$
+                        \item $ \lim_{x \rightarrow -2^+} g(f(x))$
+                        \item $ \lim_{x\rightarrow 1^-} f(g(x))$
+                        \item $ \lim_{x\rightarrow 2} \frac{f(x)}{g(x)}$
                         \end{enumerate}
+                        
+                        
     
     
                     \end{enumerate}
